@@ -44,6 +44,8 @@ var questions = [
 ];
 
 document.getElementById("restart").style.display = "none";
+document.getElementById("initials").style.display = "none";
+document.getElementById("submit").style.display = "none";
 
 // Initialize current question index and remaining time
 var currentQuestionIndex = 0;
@@ -57,6 +59,9 @@ document.getElementById("start").addEventListener("click", startQuiz);
 function startQuiz() {
   // Hide the restart button
   document.getElementById("restart").style.display = "none";
+  // Hide the submit button and the form
+  document.getElementById("submit").style.display = "none";
+  document.getElementById("initials").style.display = "none";
   // Set an interval to decrease the time every second
   timerId = setInterval(function () {
     timeRemaining--;
@@ -118,11 +123,18 @@ function checkAnswer(selectedOption) {
 function endQuiz() {
   // Show the restart button
   document.getElementById("restart").style.display = "block";
+  // Show the submit button and the form
+  document.getElementById("submit").style.display = "block";
+  document.getElementById("initials").style.display = "block";
   // Clear the interval
   clearInterval(timerId);
   // Display the final score
   document.getElementById("final-score-display").textContent =
     "Your final score is: " + timeRemaining;
+  // Replace the question and answer buttons with a completion message
+  document.getElementById("question-display").textContent = "All Done!";
+  // Clear the answer buttons
+  document.getElementById("option-display").innerHTML = "";
 }
 // Code to handle end of quiz goes here...
 function restartQuiz() {
