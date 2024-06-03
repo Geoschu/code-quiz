@@ -136,10 +136,12 @@ function endQuiz() {
   // Clear the answer buttons
   document.getElementById("option-display").innerHTML = "";
 }
-// Code to handle end of quiz goes here...
+// Function to handle end of quiz goes here...
 function restartQuiz() {
   currentQuestionIndex = 0;
   timeRemaining = 60;
+  document.getElementById("feedback-display").textContent = "";
+  document.getElementById("final-score-display").textContent = "";
   startQuiz();
 }
 
@@ -151,6 +153,10 @@ document.getElementById("submit").addEventListener("click", function () {
   // Save the score to local storage
   highScores.push({ initials: initials, score: score });
   window.localStorage.setItem("highscores", JSON.stringify(highScores));
+
+  // Hide the submit button and the initials input field
+  document.getElementById("submit").style.display = "none";
+  document.getElementById("initials").style.display = "none";
 });
 
 document.getElementById("restart").addEventListener("click", restartQuiz);
