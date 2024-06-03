@@ -43,6 +43,8 @@ var questions = [
   },
 ];
 
+document.getElementById("restart").style.display = "none";
+
 // Initialize current question index and remaining time
 var currentQuestionIndex = 0;
 var timeRemaining = 60;
@@ -53,6 +55,8 @@ document.getElementById("start").addEventListener("click", startQuiz);
 
 // Function to start the quiz
 function startQuiz() {
+  // Hide the restart button
+  document.getElementById("restart").style.display = "none";
   // Set an interval to decrease the time every second
   timerId = setInterval(function () {
     timeRemaining--;
@@ -65,6 +69,9 @@ function startQuiz() {
       getQuestion();
     }
   }, 1000);
+
+  // Hide the start button
+  document.getElementById("start").style.display = "none";
 }
 
 // Function to display a question
@@ -109,6 +116,8 @@ function checkAnswer(selectedOption) {
 
 // Function to end the quiz
 function endQuiz() {
+  // Show the restart button
+  document.getElementById("restart").style.display = "block";
   // Clear the interval
   clearInterval(timerId);
   // Display the final score
@@ -116,6 +125,11 @@ function endQuiz() {
     "Your final score is: " + timeRemaining;
 }
 // Code to handle end of quiz goes here...
+function restartQuiz() {
+  currentQuestionIndex = 0;
+  timeRemaining = 60;
+  startQuiz();
+}
 
 // Handle user score submission
 document.getElementById("submit").addEventListener("click", function () {
@@ -126,6 +140,8 @@ document.getElementById("submit").addEventListener("click", function () {
   highScores.push({ initials: initials, score: score });
   window.localStorage.setItem("highscores", JSON.stringify(highScores));
 });
+
+document.getElementById("restart").addEventListener("click", restartQuiz);
 
 // Display high scores
 document
