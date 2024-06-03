@@ -5,6 +5,42 @@ var questions = [
     options: ["Variable", "Variant", "Very Large"],
     answer: "Variable",
   },
+  {
+    prompt: "What does DOM stand for?",
+    options: [
+      "Document Object Model",
+      "Document Oriented Model",
+      "Data Object Model",
+    ],
+    answer: "Document Object Model",
+  },
+  {
+    prompt: "What does API stand for?",
+    options: [
+      "Application Programming Interface",
+      "Application Program Interface",
+      "Automated Program Interface",
+    ],
+    answer: "Application Programming Interface",
+  },
+  {
+    prompt: "What does CSS stand for?",
+    options: [
+      "Cascading Style Sheets",
+      "Creative Style Sheets",
+      "Computer Style Sheets",
+    ],
+    answer: "Cascading Style Sheets",
+  },
+  {
+    prompt: "What does HTML stand for?",
+    options: [
+      "Hyper Text Markup Language",
+      "Hyperlinks and Text Markup Language",
+      "Home Tool Markup Language",
+    ],
+    answer: "Hyper Text Markup Language",
+  },
 ];
 
 // Initialize current question index and remaining time
