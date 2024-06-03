@@ -38,3 +38,10 @@ button:hover {
 #initials {
   margin: 20px 0;
 }
+
+#timer-display {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+}
