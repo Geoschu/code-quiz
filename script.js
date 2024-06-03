@@ -102,7 +102,7 @@ function checkAnswer(selectedOption) {
   } else {
     // If the selected option is incorrect, deduct time
     document.getElementById("feedback-display").textContent = "Wrong!";
-    timeRemaining -= 10;
+    timeRemaining -= 10; // Subtract 10 seconds for each incorrect answer
     document.getElementById("time").textContent = timeRemaining;
   }
 }
